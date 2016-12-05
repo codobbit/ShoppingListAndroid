@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.preference.PreferenceFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -320,5 +321,17 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
         Log.i(TAG, "onDestroy");
     }
+//Preferences
+@Override
+protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    if (requestCode==1) //from settings
+    {
+        String name = PreferencesFragment.getName(this);
+        String message = "Welcome, "+name;
+        Toast toast = Toast.makeText(this,message,Toast.LENGTH_LONG);
+        toast.show();
+    }
+    super.onActivityResult(requestCode, resultCode, data);
+}
 
 }
