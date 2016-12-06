@@ -3,17 +3,25 @@
       xmlns:tools="http://schemas.android.com/tools"
       tools:context="org.projects.shoppinglist.MainActivity">
 
-    <item
-        android:id="@+id/menuItem_settings"
-        android:orderInCategory="2"
-        android:title="@string/action_settings"
-        app:showAsAction="never"
-        android:icon="@drawable/ic_settings" />
 
     <item
-        android:id="@+id/menuItem_clearList"
-        android:orderInCategory="4"
-        app:showAsAction="never"
+    android:id="@+id/menuItem_share"
+    android:orderInCategory="2"
+    android:title="Share.."
+    app:showAsAction="never"
+    android:icon="@drawable/ic_settings" />
+    <!--Not needed since the floating menu is in place
+    <item-->
+        <!--android:id="@+id/menuItem_settings"-->
+        <!--android:orderInCategory="2"-->
+        <!--android:title="@string/action_settings"-->
+        <!--app:showAsAction="never"-->
+        <!--android:icon="@drawable/ic_settings" />-->
 
-        android:title="@string/clearlist" />
+    <!--<item-->
+        <!--android:id="@+id/menuItem_clearList"-->
+        <!--android:orderInCategory="4"-->
+        <!--app:showAsAction="never"-->
+
+        <!--android:title="@string/clearlist" />-->
 </menu>

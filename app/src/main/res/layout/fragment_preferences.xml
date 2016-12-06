@@ -5,15 +5,18 @@
     tools:context="org.projects.shoppinglist.PreferencesFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
     <EditTextPreference
         android:key="name"
         android:defaultValue=""
         android:summary="Enter your name"
-        android:title="Name" />
+        android:title="Name"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/hello_blank_fragment" />
 
 </FrameLayout>

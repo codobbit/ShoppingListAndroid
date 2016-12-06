@@ -164,21 +164,6 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle action bar item clicks here. The action bar will
-//        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
-//        int id = item.getItemId();
-//        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
-
-
-
     // Action bar
 //Here we put the code for what should happen in the app once
 //the user selects one of our menu items (regardless of whether
@@ -187,15 +172,23 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
+            case R.id.menuItem_share:
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
 
-            case R.id.menuItem_settings:
-                Intent intent = new Intent(this, SettingsActivity.class);
-                startActivityForResult(intent, 1);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, sendList());
+                sendIntent.setType("text/plain");
+                startActivity(sendIntent);
+                return true;
 
-                return true;
-            case R.id.menuItem_clearList:
-                clearList();
-                return true;
+//            case R.id.menuItem_settings:
+//                Intent intent = new Intent(this, SettingsActivity.class);
+//                startActivityForResult(intent, 1);
+//
+//                return true;
+//            case R.id.menuItem_clearList:
+//                clearList();
+//                return true;
         }
 
         return false; //we did not handle the event
@@ -205,7 +198,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, SettingsActivity.class);
         startActivityForResult(intent, 1);
     }
-
         // Modal for clearing the list with Are you sure? Y/N
     public void clearList() {
         YesNoModal dialog = new YesNoModal(this, "", "Are you sure you want to clear the list? ") {
@@ -333,5 +325,16 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     }
     super.onActivityResult(requestCode, resultCode, data);
 }
+
+    //send lise
+    public String sendList(){
+        String list= "";
+        for (int i = 0; i < firebaseListAdapter.getCount(); i++) {
+            list += firebaseListAdapter.getItem(i).toString() + "\n" ;
+        }
+        return list;
+    }
+
+
 
 }
